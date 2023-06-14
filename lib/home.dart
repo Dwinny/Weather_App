@@ -81,21 +81,24 @@ class WeatherApp extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 100,
                       backgroundColor: Colors.white,
-                      child: Column(
-                        children: [
-                          Text(
-                            parser.emojify(':cloud with rain:'),
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          SizedBox(
-                            height: 6,
-                          ),
-                          Text(
-                            '10oC',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 50.0),
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              '\u{1F327}',
+                              style: TextStyle(fontSize: 50),
+                            ),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Text(
+                              '10\u{00B0}C',
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 80.0),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -194,28 +197,28 @@ class WeatherApp extends StatelessWidget {
                         children: [
                           daysOftheWeek(
                             'Sunday',
-                            '10oC',
-                            parser.emojify(':cloud with rain:'),
+                            '10\u{00B0}C',
+                            '\u{1F327}',
                           ),
                           daysOftheWeek(
                             'Monday',
-                            '8oC',
-                            parser.emojify(':cloud with rain and sun:'),
+                            '8\u{00B0}C',
+                            '\u{1F326}',
                           ),
                           daysOftheWeek(
                             'Tuesday',
-                            '3oC',
-                            parser.emojify(':cloud with snow:'),
+                            '3\u{00B0}C',
+                            '\u{1F328}',
                           ),
                           daysOftheWeek(
                             'Thursday',
-                            '5oC',
-                            parser.emojify(':cloud with thunder:'),
+                            '5\u{00B0}C',
+                            '\u{1F329}',
                           ),
                           daysOftheWeek(
                             'Friday',
-                            '9oC',
-                            parser.emojify(':double cloud:'),
+                            '9\u{00B0}C',
+                            '\u{2601}\u{FE0F}',
                           ),
                         ],
                       )
@@ -250,17 +253,24 @@ class daysOftheWeek extends StatelessWidget {
           width: 68,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
           child: Card(
+              elevation: 2,
               shape: RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black, width: 1.0),
                   borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                children: [
-                  Text(
-                    emoji,
-                    style: TextStyle(fontSize: 10),
-                  ),
-                  Text(degree),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Text(
+                      emoji,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Text(degree),
+                  ],
+                ),
               )),
         )
       ],
