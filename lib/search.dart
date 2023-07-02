@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/searchdetails.dart';
 import 'main.dart';
 
-class searchPage extends StatelessWidget {
+class searchPage extends StatefulWidget {
   const searchPage({super.key});
+
+  @override
+  State<searchPage> createState() => _searchPageState();
+}
+
+class _searchPageState extends State<searchPage> {
+  final TextEditingController textEditingController = TextEditingController();
+
+  void navigate(String cityName, context) async {
+    if (cityName.isNotEmpty) {
+      await Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return searchDetails(city: cityName);
+      }));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +56,21 @@ class searchPage extends StatelessWidget {
                           height: 30,
                           width: 300,
                           // color: Color.fromARGB(183, 223, 211, 211),
-                          child: TextFormField(
+                          child: TextField(
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                                 labelText: 'SEARCH LOCATION',
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 211, 205, 205),
                                 border: OutlineInputBorder(
+                                    borderSide: BorderSide.none,
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(10.0)))),
+                            controller: textEditingController,
+                            onSubmitted: (value) {
+                              return navigate(
+                                  textEditingController.text, context);
+                            },
                           ),
                         ),
                       ),
