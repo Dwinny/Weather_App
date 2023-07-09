@@ -12,16 +12,17 @@ class searchPage extends StatefulWidget {
 class _searchPageState extends State<searchPage> {
   final TextEditingController textEditingController = TextEditingController();
 
-  void navigate(String cityName, context) async {
-    if (cityName.isNotEmpty) {
-      await Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return searchDetails(city: cityName);
-      }));
-    }
-  }
+  // void navigate(String cityName, context) async {
+  //   if (cityName.isNotEmpty) {
+  //     await Navigator.push(context, MaterialPageRoute(builder: (context) {
+  //       return searchDetails(city: cityName);
+  //     }));
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
+    String cityName;
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -68,8 +69,9 @@ class _searchPageState extends State<searchPage> {
                                         Radius.circular(10.0)))),
                             controller: textEditingController,
                             onSubmitted: (value) {
-                              return navigate(
-                                  textEditingController.text, context);
+                              cityName = value;
+                              // return navigate(
+                              //     textEditingController.text, context);
                             },
                           ),
                         ),

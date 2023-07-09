@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'dart:core';
 
 class daysOftheWeek extends StatelessWidget {
   String day;
-  double degree;
+  String degree;
   Image emoji;
   daysOftheWeek(this.day, this.degree, this.emoji);
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
       child: Column(
         children: [
-          Text(day, style: TextStyle(color: Colors.black)),
+          Text(day as String, style: TextStyle(color: Colors.black)),
           SizedBox(
             height: 6,
           ),
@@ -26,7 +28,7 @@ class daysOftheWeek extends StatelessWidget {
                     side: BorderSide(color: Colors.black, width: 1.0),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     children: [
                       emoji
@@ -35,7 +37,7 @@ class daysOftheWeek extends StatelessWidget {
                       SizedBox(
                         height: 6,
                       ),
-                      Text(degree.toStringAsFixed(0)),
+                      Text(degree.toString()),
                     ],
                   ),
                 )),

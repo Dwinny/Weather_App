@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
+
 WeatherData weatherDataFromJson(String str) =>
     WeatherData.fromJson(json.decode(str));
 
@@ -202,6 +204,12 @@ class Forecastday {
         "day": day.toJson(),
       };
 }
+// String getFormattedDate(int index) {
+//     final DateTime date = DateTime.parse(forecastday[index].date);
+//     final DateFormat formatter = DateFormat('EEEE');
+//     final String formattedDate = formatter.format(date);
+//     return formattedDate;
+//   }
 
 class Day {
   double maxtempC;
@@ -272,7 +280,12 @@ class Location {
         "localtime": localtime,
       };
 }
-
+// String getFormattedDate(int index) {
+//     final DateTime date = DateTime.parse(forcast.forecastday[index].date);
+//     final DateFormat formatter = DateFormat('EEEE');
+//     final String formattedDate = formatter.format(date);
+//     return formattedDate;
+//   }
 
 
 //http://api.weatherapi.com/v1/forecast.json?key=e12ea569d2714a6482a151348232206&q=London&days=5&aqi=yes&alerts=no
